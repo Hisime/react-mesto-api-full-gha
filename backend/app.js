@@ -7,6 +7,8 @@ const rateLimit = require('express-rate-limit');
 const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
+const options = require('./middlewares/options')
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -22,6 +24,8 @@ app.use(limiter);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(requestLogger);
+app.use(cors);
+app.use(options);
 app.use(router);
 app.use(errorLogger);
 app.use(errors());
