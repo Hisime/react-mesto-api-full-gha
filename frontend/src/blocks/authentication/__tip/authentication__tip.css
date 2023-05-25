@@ -1,0 +1,10 @@
+.authentication__tip {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    bottom: 85px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 17px;
+}

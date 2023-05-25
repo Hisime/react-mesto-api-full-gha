@@ -1,0 +1,12 @@
+.authentication__input {
+    margin-bottom: 22px;
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    color: #fff;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+    line-height: 17px;
+    height: 34px;
+    padding: 0;
+}

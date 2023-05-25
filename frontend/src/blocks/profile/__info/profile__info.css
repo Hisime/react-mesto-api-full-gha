@@ -1,0 +1,17 @@
+.profile__info {
+  position: relative;
+  width: 60%;
+}
+
+@media screen and (max-width: 1024px) {
+  .profile__info {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__info {
+    width: 100%;
+    text-align: center;
+  }
+}
