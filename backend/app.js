@@ -7,8 +7,8 @@ const rateLimit = require('express-rate-limit');
 const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
-
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -17,10 +17,20 @@ const limiter = rateLimit({
 });
 
 const app = express();
+app.use(cors({
+  credentials: true,
+  origin: [
+    'https://praktikum.tk',
+    'http://praktikum.tk',
+    'https://hisime.mesto.nomoredomains.monster',
+    'http://localhost:3000',
+    'http://localhost:3001'
+  ],
+}));
 app.use(helmet());
-app.use(cors);
 mongoose.connect('mongodb://0.0.0.0:27017/mestodb');
 app.use(limiter);
+app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(requestLogger);
