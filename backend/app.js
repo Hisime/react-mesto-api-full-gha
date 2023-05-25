@@ -4,12 +4,13 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const rateLimit = require('express-rate-limit');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
 require('dotenv').config();
-const cookieParser = require('cookie-parser');
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
@@ -25,7 +26,7 @@ app.use(cors({
     'http://praktikum.tk',
     'https://hisime.mesto.nomoredomains.monster',
     'http://localhost:3000',
-    'http://localhost:3001'
+    'http://localhost:3001',
   ],
 }));
 app.get('/crash-test', () => {
@@ -36,7 +37,7 @@ app.get('/crash-test', () => {
 app.use(helmet());
 mongoose.connect('mongodb://0.0.0.0:27017/mestodb');
 app.use(limiter);
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(requestLogger);

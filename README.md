@@ -4,12 +4,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/Hisime/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.39.240
 
-Frontend https://...
+Frontend https://hisime.mesto.nomoredomains.monster/
 
-Backend https://...
+Backend https://api.hisime.mesto.nomoredomains.monster/
