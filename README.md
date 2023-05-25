@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.39.240
+IP-адрес 158.160.039.240
 
 Frontend https://hisime.mesto.nomoredomains.monster/
 
