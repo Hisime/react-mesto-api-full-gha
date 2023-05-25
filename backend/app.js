@@ -28,6 +28,11 @@ app.use(cors({
     'http://localhost:3001'
   ],
 }));
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use(helmet());
 mongoose.connect('mongodb://0.0.0.0:27017/mestodb');
 app.use(limiter);
