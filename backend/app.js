@@ -8,6 +8,7 @@ const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('cors');
+require('dotenv').config();
 const cookieParser = require('cookie-parser');
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
