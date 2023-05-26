@@ -9,8 +9,10 @@ const cookieParser = require('cookie-parser');
 const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+
 require('dotenv').config();
-const { DB_ADDRESS = 'mongodb://0.0.0.0:27017/mestodb', PORT = 3000 } = process.env
+
+const { DB_ADDRESS = 'mongodb://0.0.0.0:27017/mestodb', PORT = 3000 } = process.env;
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
