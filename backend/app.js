@@ -10,6 +10,7 @@ const router = require('./routes');
 const errorsHandler = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 require('dotenv').config();
+const { DB_ADDRESS = 'mongodb://0.0.0.0:27017/mestodb', PORT = 3000 } = process.env
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -25,6 +26,7 @@ app.use(cors({
     'https://praktikum.tk',
     'http://praktikum.tk',
     'https://hisime.mesto.nomoredomains.monster',
+    'http://hisime.mesto.nomoredomains.monster',
     'http://localhost:3000',
     'http://localhost:3001',
   ],
@@ -35,7 +37,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.use(helmet());
-mongoose.connect('mongodb://0.0.0.0:27017/mestodb');
+mongoose.connect(DB_ADDRESS);
 app.use(limiter);
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,4 +47,4 @@ app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorsHandler);
-app.listen(3000, () => console.log('server started'));
+app.listen(PORT, () => console.log('server started'));

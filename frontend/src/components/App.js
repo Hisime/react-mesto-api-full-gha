@@ -96,7 +96,7 @@ function App() {
         getUserEmail()
             .then(res => {
                 if (res) {
-                    setUserEmail(res.data.email)
+                    setUserEmail(res.email)
                     setLoggedIn(true)
                     navigate('/')
                 }
