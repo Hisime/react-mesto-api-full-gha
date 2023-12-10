@@ -4,6 +4,13 @@
   
 Адрес репозитория: https://github.com/Hisime/react-mesto-api-full-gha
 
+## Технологии
+* HTML
+* CSS
+* Javascript
+* React
+* Node JS
+
 ## Ссылки на проект
 
 Frontend https://hisime.mesto.nomoredomains.monster/
